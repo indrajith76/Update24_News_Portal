@@ -1,3 +1,6 @@
+/* -----------------------
+    Load news Caregory
+------------------------- */
 const loadCategory = async() => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     try {
@@ -10,7 +13,9 @@ const loadCategory = async() => {
     }
     
 }
-
+/* ----------------------------
+    Display News Caregory
+--------------------------- */
 const displayCategory = categories => {
     const categorySection = document.getElementById('category-section');
     categories.forEach(category => {
@@ -22,7 +27,9 @@ const displayCategory = categories => {
         categorySection.appendChild(categoryDiv);
     });
 }
-
+/*--------------------------------
+    Load News following categroy
+ --------------------------------*/
 const loadCategoryNews = async categoryId => {
     //start loader
     spinner(true);
@@ -37,7 +44,9 @@ const loadCategoryNews = async categoryId => {
         console.log(error);
     }
 }
-
+/* ------------------------------------
+    Display News infomations
+ ------------------------------------*/
 const displayNewsInfo = allNewsInfo => {
     const newsCounter = document.getElementById('counter');
     if(allNewsInfo.length !== 0) {
@@ -69,8 +78,8 @@ const displayNewsInfo = allNewsInfo => {
                         <div class="flex gap-3">
                             <img class="rounded-full h-12" src="${allInfo.author.img}">
                             <div>
-                                <h5 class="text-lg font-semibold">${allInfo.author.name ? allInfo.author.name : "Not Available."}</h5>
-                                <p class="font-medium text-slate-500">${allInfo.author.published_date ? allInfo.author.published_date.slice(0, 10):'not available.'}</p>
+                                <h5 class="text-sm md:text-lg font-semibold">${allInfo.author.name ? allInfo.author.name : "Not Available."}</h5>
+                                <p class="font-thin md:font-medium text-slate-500">${allInfo.author.published_date ? allInfo.author.published_date.slice(0, 10):'not available.'}</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-2">
@@ -93,10 +102,13 @@ const displayNewsInfo = allNewsInfo => {
         `;
         newsCardContainer.appendChild(newsCardsDiv);
     });
+    // stop spinner
     spinner(false);
 }
 
-
+/* ---------------------------------
+        Load Model api
+--------------------------------- */
 const loadModal = async newsId => {
     spinner(true);
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
@@ -110,7 +122,9 @@ const loadModal = async newsId => {
     }
 }
 
-
+/* -------------------------------
+    Display Modal data
+------------------------------- */
 const modalOverlay = document.getElementById('modal-overlay');
 const displayModalData = data => {
     modalOverlay.classList.remove('hidden');
@@ -130,11 +144,15 @@ const displayModalData = data => {
     `;
     spinner(false);
 }
-
+/* ------------------------------
+    Modal Closing
+ ------------------------------*/
 const modalOff = () => {
     modalOverlay.classList.add('hidden');
 }
-
+/* --------------------------------
+    spinner functions
+-------------------------------- */
 const spinner = data => {
     const spinnerDiv = document.getElementById('spinner');
     if(data === true){
@@ -147,8 +165,26 @@ const spinner = data => {
     }
 }
 
+/* ------------------------------
+    Toggle button for moblie
+------------------------------ */
+const togglerBtn = document.getElementById('toggler-btn');
+let toggle = false;
+const togglerOn = () => {
+    if(toggle === false){
+        toggle = true;
+        togglerBtn.classList.remove('hidden');
+    }
+    else{
+        togglerBtn.classList.add('hidden');
+        toggle = false;
+    }
+}
 
+
+/* ----------------------------------------
+    call function for automatic calling
+------------------------------------------ */
 loadCategoryNews('01')
 
-loadCategory()
-// spinner(true)
+loadCategory();
