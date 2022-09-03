@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B6-News-Portal</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <!-- tailwind link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom css link -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="container mx-auto">
+        <section>
+            <nav class="flex justify-between h-16 mt-2 mb-2 pl-4 pr-4 lg:p-0">
+                <img class="w-10/12 md:w-auto" src="images/logo1.gif" alt="">
+                <div class="hidden md:flex justify-end items-center gap-6">
+                    <div class="hover:border-b-2 border-blue-500"><a class="text-base font-bold text-gray-500 hover:text-blue-600" href="index.html">News</a></div>
+                    <div class="border-b-2 border-blue-500"><a class="text-base font-bold text-blue-600" href="blog.html">Blog</a></div>
+                    <div class="w-1/12"><img class="user-img rounded-full" src="images/user-img.jpg" alt=""></div>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="toggle-btn-on" onclick="togglerOn()" class="border p-2 h-10"><i class="fa-solid fa-bars"></i></button>
+                </div>
+                <ul id="toggler-btn" class="hidden absolute right-3 top-16 p-3 bg-white border shadow-lg">
+                    <li class="w-24 p-2 m-1 pl-0 bg-slate-200 border hover:border-gray-800 text-center rounded"><a class="block" href="#">News</a></li>
+                    <li class="w-24 p-2 m-1 pl-0 bg-slate-200 border hover:border-gray-800 text-center rounded"><a class="block" href="blog.html">Blog</a></li>
+                    <li class="w-8"><img class="ml-10 user-img rounded-full" src="images/user-img.jpg" alt=""></li>
+                </ul>
+            </nav>
+            <hr>
+        </section>
+    </header>
+    <main class="container mx-auto pt-10">
+        <section class="grid grid-cols-2 gap-5">
+            <div class="bg-sky-100 p-5 rounded-md">
+                <h2 class="text-2xl">Question - 1: Defference between ver, let and const ?</h2>
+                <p  class="text-lg">Answer : </p>
+                <p>var : The scope of a var variable is functional scope. It can be updated and re-declared into the scope. It can be declared without initialization.</p>
+                <p>let : The scope of a let variable is block scope. It can be updated but cannot be re-declared into the scope. It can be declared without initialization.</p>
+                <p>const : The scope of a const variable is block scope. It cannot be updated or re-declared into the scope. It cannot be declared without initialization.</p>
+            </div>
+            <div class="bg-sky-100 p-5 rounded-md">
+                <h2 class="text-2xl">Question - 2: Defference between arrow function and regular function ?</h2>
+                <p  class="text-lg">Answer : </p>
+                <p>var : The scope of a var variable is functional scope. It can be updated and re-declared into the scope. It can be declared without initialization.</p>
+                <p>let : The scope of a let variable is block scope. It can be updated but cannot be re-declared into the scope. It can be declared without initialization.</p>
+                <p>const : The scope of a const variable is block scope. It cannot be updated or re-declared into the scope. It cannot be declared without initialization.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="container mx-auto pt-5 pb-5 border-t-2 mt-14">
+        <p class="text-center">Copyright 2021 Update24 News Portal</p>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
