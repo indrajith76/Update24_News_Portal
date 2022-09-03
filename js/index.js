@@ -134,8 +134,8 @@ const displayModalData = data => {
         <div class="flex gap-3 mb-5">
             <img class="w-11 rounded-full" src="${data.author.img}">
             <div>
-                <h4 class="text-lg font-semibold">${data.author.name}</h4>
-                <p>${data.author.published_date}</p>
+                <h4 class="text-lg font-semibold">${data.author.name?data.author.name:"Not available"}</h4>
+                <p>${data.author.published_date?data.author.published_date:'Not available'}</p>
             </div>
         </div>
         <img class='w-full mb-5' src="${data.image_url}">
