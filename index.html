@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B6-News-Portal</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <!-- tailwind link -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- custom css link -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <header class="container mx-auto">
@@ -26,13 +30,41 @@
         </section>
     </header>
     <main class="container mx-auto">
-        <section id="news-cunter" class="bg-slate-100 pt-4 pb-4 pl-12 pr-12 rounded-lg">
+        <div id="spinner" class="hidden items-center justify-center">
+            <div class="absolute lds-dual-ring mt-80"></div>
+        </div>
+        <section id="news-cunter" class="bg-slate-100 pt-4 pb-4 ml-11 mr-11 pl-6 rounded-lg">
             <div>
                 <h4 class="font-semibold text-slate-500"><span id="counter"></span> News found.</h4>
             </div>
         </section>
 
-        
+        <section id="sorting-section" class="ml-11 mr-11 flex pt-5 pb-5 justify-between items-center">
+            <div>
+                <label for="sort-dropdown">Sort By View</label>
+                <select name="sort" id="sort-dropdown" class="border">
+                    <option selected value="">Default</option>
+                    <option value="Breaking news">Breaking news</option>
+                    <option value="Top View">Top View</option>
+                </select>
+            </div>
+            <div>
+                <button class="hover:bg-blue-500 border font-semibold border-blue-500 text-slate-600 hover:text-white p-2 rounded-md">Today's Pick</button>
+                <button class="hover:bg-blue-500 border font-semibold border-blue-500 text-slate-600 hover:text-white p-2 rounded-md">Trending</button>
+            </div>
+        </section>
+
+        <section id="news-card-container" class="ml-11 mr-11 grid gap-5">
+            
+        </section>
+
+        <section id="modal-container">
+            <div id="modal-overlay" class="overflow-auto hidden fixed w-full h-full top-0 bottom-0 right-0 left-0 bg-gray-400">
+                <div id="modal-body" class=" w-9/12 relative mx-auto top-16 bg-slate-400">
+                    
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="js/index.js"></script>
