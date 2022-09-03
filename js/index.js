@@ -110,17 +110,17 @@ const displayModalData = data => {
     modalOverlay.classList.remove('hidden');
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML = `
-        <h1>${data.title}</h1>
-        <div class="flex gap-3">
+        <h1 class="text-2xl font-bold mb-5">${data.title}</h1>
+        <div class="flex gap-3 mb-5">
             <img class="w-11 rounded-full" src="${data.author.img}">
             <div>
-                <h4>${data.author.name}</h4>
+                <h4 class="text-lg font-semibold">${data.author.name}</h4>
                 <p>${data.author.published_date}</p>
             </div>
         </div>
-        <img src="${data.image_url}">
+        <img class='w-full mb-5' src="${data.image_url}">
         <p>${data.details}</p>
-        <i onclick="modalOff()" class="absolute top-1 right-1 cursor-pointer fa-solid fa-xmark"></i>
+        <i onclick="modalOff()" class="absolute -top-4 -right-3 px-2 rounded-full bg-white border cursor-pointer text-2xl fa-solid fa-xmark"></i>
     `;
 }
 
