@@ -16,7 +16,7 @@ const displayCategory = categories => {
     categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-            <a onclick="loadCategoryNews('${category.category_id}')" class="text-base font-bold text-gray-500 hover:text-blue-600 hover:bg-blue-300 hover:px-2 hover:py-1 hover:rounded" href="#">${category.category_name}</a>
+            <a onclick="loadCategoryNews('${category.category_id}')" class="text-base font-bold text-gray-500 hover:text-blue-600 focus:text-blue-600 active:text-blue-600 hover:bg-blue-300 active:bg-blue-300 focus:bg-blue-300 hover:px-2 focus:px-2 active:px-2 hover:py-1 focus:py-1 active:py-1 hover:rounded focus:rounded active:rounded" href="#">${category.category_name}</a>
         `;
         categorySection.appendChild(categoryDiv);
     });
@@ -45,6 +45,9 @@ const displayNewsInfo = allNewsInfo => {
     else {
         newsCounter.innerText = 'NO';
     }
+
+    allNewsInfo.sort((a,b) => a.total_view - b.total_view);
+    allNewsInfo.reverse()
 
     const newsCardContainer = document.getElementById('news-card-container');
     newsCardContainer.innerHTML = ``;
@@ -93,6 +96,7 @@ const displayNewsInfo = allNewsInfo => {
 
 
 const loadModal = async newsId => {
+    spinner(true);
     const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
     try {
         const res = await fetch(url);
@@ -122,6 +126,7 @@ const displayModalData = data => {
         <p>${data.details}</p>
         <i onclick="modalOff()" class="absolute -top-4 -right-3 px-2 rounded-full bg-white border cursor-pointer text-2xl fa-solid fa-xmark"></i>
     `;
+    spinner(false);
 }
 
 const modalOff = () => {
