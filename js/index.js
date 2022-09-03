@@ -46,8 +46,9 @@ const displayNewsInfo = allNewsInfo => {
         newsCounter.innerText = 'NO';
     }
 
+    /* Sorting and Reverse the array */
     allNewsInfo.sort((a,b) => a.total_view - b.total_view);
-    allNewsInfo.reverse()
+    allNewsInfo.reverse();
 
     const newsCardContainer = document.getElementById('news-card-container');
     newsCardContainer.innerHTML = ``;
