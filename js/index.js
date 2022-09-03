@@ -57,15 +57,15 @@ const displayNewsInfo = allNewsInfo => {
         const newsCardsDiv = document.createElement('div');
         newsCardsDiv.classList.add('news-card')
         newsCardsDiv.innerHTML = `
-            <div onclick="loadModal('${allInfo._id}')" class="card-item flex gap-5 shadow-lg p-2 rounded-lg border">
-                <div class="w-3/12">
+            <div onclick="loadModal('${allInfo._id}')" class="card-item md:flex flex-col lg:flex-row gap-5 shadow-lg p-2 rounded-lg border">
+                <div class="lg:w-3/12">
                     <img class="h-full" src='${allInfo.image_url}'>
                 </div>
-                <div class="w-3/4">
+                <div class="lg:w-3/4">
                     <h3 class="text-xl font-semibold mb-2">${allInfo.title}</h3>
                     <p class="mb-3">${allInfo.details.slice(0, 300)}...</p>
                     
-                    <div class="flex justify-between">
+                    <div class="grid grid-cols-2 justify-items-center mb-2 md:mb-0 md:flex justify-between">
                         <div class="flex gap-3">
                             <img class="rounded-full h-12" src="${allInfo.author.img}">
                             <div>
